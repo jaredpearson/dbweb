@@ -1,0 +1,14 @@
+{{define "layouts/main"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dreamblade Catalog{{if .PageTitle}} - {{.PageTitle}}{{end}}</title>
+</head>
+<body>
+    <div>
+        {{if len .UserInfo.Username}}{{.UserInfo.Username}}{{else}}<a href="/login">Login</a>{{end}}
+    </div>
+{{template "content" .}}
+</body>
+</html>
+{{end}}

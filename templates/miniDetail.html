@@ -1,0 +1,71 @@
+{{define "content"}}
+<h1>{{.Name}}</h1>
+<table>
+    <tr>
+        <td>Lineage</td>
+        <td>{{.Lineage}}</td>
+    </tr>
+    <tr>
+        <td>Aspect</td>
+        <td>{{.Aspect}}</td>
+    </tr>
+    <tr>
+        <td>Spawn Cost</td>
+        <td>{{.Aspect}}</td>
+    </tr>
+    <tr>
+        <td>Aspect</td>
+        <td>{{.Aspect}}</td>
+    </tr>
+    <tr>
+        <td>Spawn Cost</td>
+        <td>{{.SpawnCost}}</td>
+    </tr>
+    <tr>
+        <td>Aspect Cost</td>
+        <td>{{.AspectCost}}</td>
+    </tr>
+    <tr>
+        <td>Power</td>
+        <td>{{.Power}}</td>
+    </tr>
+    <tr>
+        <td>Defense</td>
+        <td>{{.Defense}}</td>
+    </tr>
+    <tr>
+        <td>Life</td>
+        <td>{{.Life}}</td>
+    </tr>
+    <tr>
+        <td>Abilities</td>
+        <td>{{.Abilities}}</td>
+    </tr>
+    <tr>
+        <td>Flavor Text</td>
+        <td>{{.FlavorText}}</td>
+    </tr>
+    <tr>
+        <td>Collector Number</td>
+        <td>{{.CollectorNumber}}</td>
+    </tr>
+    <tr>
+        <td>Set</td>
+        <td>
+            {{if .SetCode}}
+                <a href="/set/{{.SetCode}}">{{.Set}}</a>
+            {{else}}
+                {{.Set}}
+            {{end}}
+        </td>
+    </tr>
+    <tr>
+        <td>Rarity</td>
+        <td>{{.Rarity}}</td>
+    </tr>
+</table>
+<div>
+    {{if .PrevMiniURL}}<a href="{{.PrevMiniURL}}">Previous</a>{{end}}
+    {{if .NextMiniURL}}<a href="{{.NextMiniURL}}">Next</a>{{end}}
+</div>
+{{end}}
