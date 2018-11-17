@@ -3,12 +3,25 @@
 <html>
 <head>
     <title>Dreamblade Catalog{{if .PageTitle}} - {{.PageTitle}}{{end}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
 </head>
 <body>
-    <div>
-        {{if len .UserInfo.Username}}{{.UserInfo.Username}}{{else}}<a href="/login">Login</a>{{end}}
+    <div class="container">
+        <div class="level">
+            <div class="level-left"></div>
+            <div class="level-right">
+                <div class="level-item">
+                    <a href="/">Home</a>
+                </div>
+                <div class="level-item">
+                    {{if len .UserInfo.Username}}{{.UserInfo.Username}}{{else}}<a href="/login">Login</a>{{end}}
+                </div>
+            </div>
+        </div>
+        <div>
+            {{template "content" .}}
+        </div>
     </div>
-{{template "content" .}}
 </body>
 </html>
 {{end}}

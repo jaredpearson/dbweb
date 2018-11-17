@@ -1,6 +1,11 @@
 {{define "content"}}
-<h1>{{.Name}}</h1>
-<table>
+<style>
+.stats-table td {
+    padding-right: 1em;
+}
+</style>
+<h1 class="title">{{.Name}}</h1>
+<table class="stats-table" style="margin-bottom: 1em">
     <tr>
         <td>Lineage</td>
         <td>{{.Lineage}}</td>
@@ -64,8 +69,9 @@
         <td>{{.Rarity}}</td>
     </tr>
 </table>
-<div>
-    {{if .PrevMiniURL}}<a href="{{.PrevMiniURL}}">Previous</a>{{end}}
-    {{if .NextMiniURL}}<a href="{{.NextMiniURL}}">Next</a>{{end}}
-</div>
+<nav class="pagination is-right" role="navigation" aria-label="pagination">
+    {{if .PrevMiniURL}}<a class="pagination-previous" href="{{.PrevMiniURL}}">Previous</a>{{end}}
+    {{if .NextMiniURL}}<a class="pagination-next" href="{{.NextMiniURL}}">Next</a>{{end}}
+    <ul class="pagination-list"></ul>
+</nav>
 {{end}}
