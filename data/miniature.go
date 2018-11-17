@@ -177,14 +177,19 @@ func loadDataFromFile() [][]string {
 	return d[1:]
 }
 
-func buildIDToIndex(data []Miniature) {
+func buildIDToIndex(miniatures []Miniature) {
 	idToIndex = make(map[string]int)
 	setToMinis = make(map[string][]*Miniature)
 
-	for i, r := range data {
-		idToIndex[r.id] = i
-		setKey := strings.ToLower(r.set)
-		setToMinis[setKey] = append(setToMinis[setKey], &data[i])
+	for i := range miniatures {
+		miniature := &miniatures[i]
+		idToIndex[miniature.id] = i
+		setKey := strings.ToLower(miniature.set)
+
+		if _, exists := setToMinis[setKey]; !exists {
+			setToMinis[setKey] = []*Miniature{}
+		}
+		setToMinis[setKey] = append(setToMinis[setKey], &miniatures[i])
 	}
 
 	for _, miniArray := range setToMinis {

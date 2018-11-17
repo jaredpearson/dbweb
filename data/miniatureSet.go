@@ -48,7 +48,7 @@ func init() {
 		{id: "SD", name: "Serrated Dawn"},
 	}
 	idToSet = make(map[string]*MiniatureSet)
-	for _, set := range sets {
-		idToSet[set.id] = &set
+	for i := range sets {
+		idToSet[strings.ToUpper(sets[i].id)] = &sets[i]
 	}
 }
