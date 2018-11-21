@@ -110,14 +110,7 @@ func ServerStart() {
 	mwChain := ChainMiddleware(fillSession, fillUser)
 
 	http.Handle("/", mwChain(http.HandlerFunc(showHome)))
-	http.Handle("/login", mwChain(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		session := sessionManager.SessionStart(w, r)
-
-		// TODO build login page for now just hardcode
-		session.Set("username", "user@dreamblade.com")
-
-		http.Redirect(w, r, "/", http.StatusSeeOther)
-	})))
+	http.Handle("/login", mwChain(http.HandlerFunc(ShowLoginPage)))
 	http.Handle("/miniature/", mwChain(http.HandlerFunc(ShowMiniatureDetailPage)))
 	http.Handle("/set/", mwChain(http.HandlerFunc(ShowSetDetailPage)))
 
